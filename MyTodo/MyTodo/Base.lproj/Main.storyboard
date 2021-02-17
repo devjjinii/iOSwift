@@ -23,7 +23,7 @@
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jjinii" translatesAutoresizingMaskIntoConstraints="NO" id="0qH-Bk-WM1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jjinii3" translatesAutoresizingMaskIntoConstraints="NO" id="0qH-Bk-WM1">
                                 <rect key="frame" x="37" y="110" width="341" height="215"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -58,6 +58,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F3b-70-212">
+                                <rect key="frame" x="150" y="159" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="@2x @3x  이미지 해상도" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5rg-1v-r4d">
+                                <rect key="frame" x="120" y="267" width="174" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XQw-HX-mhR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -65,11 +77,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9z-yz-hVw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="73"/>
+            <point key="canvasLocation" x="785.50724637681162" y="72.554347826086968"/>
         </scene>
     </scenes>
     <resources>
-        <image name="jjinii" width="719" height="960"/>
+        <image name="jjinii3" width="959" height="960"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
