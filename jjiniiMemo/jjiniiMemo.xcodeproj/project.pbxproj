@@ -15,6 +15,7 @@
 		6A92026726245B0F00DFA65E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A92026526245B0F00DFA65E /* LaunchScreen.storyboard */; };
 		6A92027726252C5100DFA65E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92027626252C5100DFA65E /* Model.swift */; };
 		6A92027B26252FD200DFA65E /* MemoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92027A26252FD200DFA65E /* MemoListTableViewController.swift */; };
+		6A92027E2625559A00DFA65E /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A92027D2625559A00DFA65E /* ComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		6A92026826245B0F00DFA65E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A92027626252C5100DFA65E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6A92027A26252FD200DFA65E /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
+		6A92027D2625559A00DFA65E /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				6A92026826245B0F00DFA65E /* Info.plist */,
 				6A92026026245B0E00DFA65E /* jjiniiMemo.xcdatamodeld */,
 				6A92027A26252FD200DFA65E /* MemoListTableViewController.swift */,
+				6A92027D2625559A00DFA65E /* ComposeViewController.swift */,
 			);
 			path = jjiniiMemo;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				6A92025826245B0E00DFA65E /* AppDelegate.swift in Sources */,
 				6A92026226245B0E00DFA65E /* jjiniiMemo.xcdatamodeld in Sources */,
 				6A92027B26252FD200DFA65E /* MemoListTableViewController.swift in Sources */,
+				6A92027E2625559A00DFA65E /* ComposeViewController.swift in Sources */,
 				6A92025A26245B0E00DFA65E /* SceneDelegate.swift in Sources */,
 				6A92027726252C5100DFA65E /* Model.swift in Sources */,
 			);
