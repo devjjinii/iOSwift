@@ -9,6 +9,14 @@ import UIKit
 
 class MemoListTableViewController: UITableViewController {
 
+    let formatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,20 +29,21 @@ class MemoListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
+    // 테이블뷰 cell 개수 check
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         // 더미리스트 개수
         return Memo.dummyMemoList.count
     }
 
-    // 중요한 메서드
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {                      // 내가 지정한 identifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    // 어떤 디자인,어떤 데이터인가 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) // "cell" -> 내가 지정한 identifier
 
         // Configure the cell...
-        let target = Memo.dummyMemoList[indexPath.row]
+        let target = Memo.dummyMemoList[indexPath.row]  // indexPath  특정셀
         cell.textLabel?.text = target.content  // 내용
-        cell.detailTextLabel?.text = target.insertDate.description // 날짜
+        cell.detailTextLabel?.text = formatter.string(from: target.insertDate) // 날짜
 
         return cell
     }
