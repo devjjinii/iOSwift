@@ -12,8 +12,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+    //Xcode 11 > ios 13 에 맞춰져있음. 이전버전에서 실행하기 위해 추가.
+    var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication .LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
