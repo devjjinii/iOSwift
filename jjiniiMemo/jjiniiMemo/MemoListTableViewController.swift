@@ -32,7 +32,15 @@ class MemoListTableViewController: UITableViewController {
             NotificationCenter.default.removeObserver(token)
         }
     }
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            if let vc = segue.destination as? DetailViewController {
+                vc.memo = Memo.dummyMemoList[indexPath.row] //세그웨이에서전달하는패턴
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
