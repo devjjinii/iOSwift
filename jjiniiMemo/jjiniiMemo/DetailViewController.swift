@@ -21,6 +21,27 @@ class DetailViewController: UIViewController {
         return f
     }()
     
+    @IBAction func deleteMemo(_ sender: Any) {
+        let alert = UIAlertController(title: "삭제 확인", message: "메모를 삭제하시겠습니까?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "삭제", style: .destructive) {
+            [weak self] (action) in
+            DataManager.shared.deleteMemo(self?.memo)
+            // 삭제후 화면처리(이전화면)
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        alert.addAction(okAction)
+        
+        // 취소버튼
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        // 경고창 화면에 표시
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination.children.first as?
             ComposeViewController {
