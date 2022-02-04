@@ -19,10 +19,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let notifiactionName = Notification.Name("send some string data")
-        
+        // 연결점이 없는 상황에서 데이터 전송 >> Notification
+        let notifiactionName = Notification.Name("sendSomeStringData")
+       
         NotificationCenter.default.addObserver(self, selector: #selector(showSomeString), name: notifiactionName, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        // removeObserver
+    }
+
+    @objc func keyboardWillShow() {
+        print("will show")
     }
     
     @objc func showSomeString(notification: Notification) {

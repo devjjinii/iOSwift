@@ -14,6 +14,7 @@ class NotiDetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
     @IBAction func notiAction(_ sender: Any) {
         
         let notifiactionName = Notification.Name("sendSomeStringData")
@@ -21,5 +22,8 @@ class NotiDetailViewController: UIViewController {
         let strDic = ["str" : "noti string"]
         
         NotificationCenter.default.post(name: notifiactionName, object: nil, userInfo: strDic)
+        
+        self.dismiss(animated: true, completion: nil)
+       
     }
 }

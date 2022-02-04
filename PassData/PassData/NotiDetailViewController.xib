@@ -24,7 +24,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="pass data Noti"/>
                     <connections>
-                        <action selector="notiAction:" destination="-1" eventType="touchUpInside" id="hME-Dv-d9V"/>
+                        <action selector="notiAction:" destination="-1" eventType="touchUpInside" id="4LN-5f-Q9D"/>
                     </connections>
                 </button>
             </subviews>
