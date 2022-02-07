@@ -23,6 +23,8 @@
 		6A6A1B3127ACFB4E00073A06 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A1B3027ACFB4E00073A06 /* SettingModel.swift */; };
 		6AD356BF27B09DA700F81A16 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD356BE27B09DA700F81A16 /* GeneralViewController.swift */; };
 		6AD356C127B09DE900F81A16 /* GeneralViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD356C027B09DE900F81A16 /* GeneralViewController.storyboard */; };
+		6AD356C427B0B2E300F81A16 /* MyIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD356C227B0B2E300F81A16 /* MyIDViewController.swift */; };
+		6AD356C527B0B2E300F81A16 /* MyIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AD356C327B0B2E300F81A16 /* MyIDViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		6A6A1B3027ACFB4E00073A06 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		6AD356BE27B09DA700F81A16 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		6AD356C027B09DE900F81A16 /* GeneralViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneralViewController.storyboard; sourceTree = "<group>"; };
+		6AD356C227B0B2E300F81A16 /* MyIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIDViewController.swift; sourceTree = "<group>"; };
+		6AD356C327B0B2E300F81A16 /* MyIDViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyIDViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				6A6A1B3027ACFB4E00073A06 /* SettingModel.swift */,
 				6AD356BE27B09DA700F81A16 /* GeneralViewController.swift */,
 				6AD356C027B09DE900F81A16 /* GeneralViewController.storyboard */,
+				6AD356C227B0B2E300F81A16 /* MyIDViewController.swift */,
+				6AD356C327B0B2E300F81A16 /* MyIDViewController.xib */,
 			);
 			path = SettingCloneApp;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 				6A6A1B0527ACC67E00073A06 /* LaunchScreen.storyboard in Resources */,
 				6A6A1B2B27ACE3CA00073A06 /* ProfileCell.xib in Resources */,
 				6A6A1B2F27ACF13800073A06 /* MenuCell.xib in Resources */,
+				6AD356C527B0B2E300F81A16 /* MyIDViewController.xib in Resources */,
 				6A6A1B0227ACC67E00073A06 /* Assets.xcassets in Resources */,
 				6A6A1B0027ACC67B00073A06 /* Main.storyboard in Resources */,
 			);
@@ -287,6 +294,7 @@
 				6A6A1B2E27ACF13800073A06 /* MenuCell.swift in Sources */,
 				6A6A1B3127ACFB4E00073A06 /* SettingModel.swift in Sources */,
 				6A6A1B2A27ACE3CA00073A06 /* ProfileCell.swift in Sources */,
+				6AD356C427B0B2E300F81A16 /* MyIDViewController.swift in Sources */,
 				6A6A1AF927ACC67B00073A06 /* AppDelegate.swift in Sources */,
 				6A6A1AFB27ACC67B00073A06 /* SceneDelegate.swift in Sources */,
 			);

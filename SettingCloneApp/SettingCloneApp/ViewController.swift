@@ -66,7 +66,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 && indexPath.row == 0 {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            // XIB 파일을 가져오는 스타일
+            let myidVC = MyIDViewController(nibName: "MyIDViewController", bundle: nil)
+            
+            self.present(myidVC, animated: true, completion: nil)
+            
+            
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            
+            // 스토리보드를 가져오는 스타일
             if let generalVC = UIStoryboard(name: "GeneralViewController", bundle: nil).instantiateViewController(identifier: "GeneralViewController") as? GeneralViewController {
                 
                 self.navigationController?.pushViewController(generalVC, animated: true)
