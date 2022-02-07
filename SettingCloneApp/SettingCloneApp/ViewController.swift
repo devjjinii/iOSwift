@@ -25,7 +25,14 @@ class ViewController: UIViewController {
         )
     }
     
-    // 처음 실행(셋팅)되는 부분
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 설정화면 타이틀 크게 고정
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+    }
+    
+    // 처음 실행(셋팅)되는 부분 > 한번 호출되고 끝
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +43,11 @@ class ViewController: UIViewController {
         settingTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         
         settingTableView.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: "MenuCell")
+        
+        // self 생략
+        title = "Settings"
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor(white: 243/255, alpha: 1)
         
         makeData()
     }
@@ -51,6 +63,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return settingModel.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            if let generalVC = UIStoryboard(name: "GeneralViewController", bundle: nil).instantiateViewController(identifier: "GeneralViewController") as? GeneralViewController {
+                
+                self.navigationController?.pushViewController(generalVC, animated: true)
+                
+            }
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
