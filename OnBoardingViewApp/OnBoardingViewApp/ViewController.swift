@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var didShowOnboardingView = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,13 +24,18 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 노트넘기듯이 넘기는 효과 말고 옆으로 넘기는 효과
-        let pageVC = OnboardingPageViewController(
-            transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
-        // 전체화면
-        pageVC.modalPresentationStyle = .fullScreen
+        if didShowOnboardingView == false {
+            didShowOnboardingView = true
+            // 노트넘기듯이 넘기는 효과 말고 옆으로 넘기는 효과
+            let pageVC = OnboardingPageViewController(
+                transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)
+            // 전체화면
+            pageVC.modalPresentationStyle = .fullScreen
+            
+            self.present(pageVC, animated: true, completion: nil)
+        }
         
-        self.present(pageVC, animated: true, completion: nil)
+      
     }
 
 
