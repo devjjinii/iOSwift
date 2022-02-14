@@ -17,38 +17,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFl-gd-N3C">
-                                <rect key="frame" x="0.0" y="64" width="414" height="200"/>
-                                <color key="backgroundColor" red="1" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="HUW-Fu-3XK"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zr0-pq-692">
+                                <rect key="frame" x="280" y="364" width="58" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="PLAY"/>
+                                <connections>
+                                    <action selector="play:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Mjk-JK-fhK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWb-Wf-SSw">
+                                <rect key="frame" x="343" y="364" width="61" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="STOP"/>
+                                <connections>
+                                    <action selector="stop:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="al0-9w-RaD"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDm-pA-nkT">
-                                <rect key="frame" x="20" y="284" width="374" height="21"/>
+                                <rect key="frame" x="20" y="415" width="384" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-dI-ZES">
-                                <rect key="frame" x="20" y="325" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="456" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhM-ae-gs6">
+                                <rect key="frame" x="325" y="54" width="79" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="CANCEL"/>
+                                <connections>
+                                    <action selector="cancel:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Nn7-HX-6hv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dFl-gd-N3C" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="4Bo-vW-miS"/>
+                            <constraint firstItem="dFl-gd-N3C" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="4Bo-vW-miS"/>
                             <constraint firstItem="ZFy-dI-ZES" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="B6W-Rm-vtV"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wDm-pA-nkT" secondAttribute="trailing" constant="20" id="JsM-I9-cf1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WWb-Wf-SSw" secondAttribute="trailing" constant="10" id="GPp-mh-bNe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dFl-gd-N3C" secondAttribute="trailing" id="NLD-cK-0c4"/>
+                            <constraint firstItem="QhM-ae-gs6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="RSF-mE-tsE"/>
                             <constraint firstItem="ZFy-dI-ZES" firstAttribute="top" secondItem="wDm-pA-nkT" secondAttribute="bottom" constant="20" id="T7C-Kx-nhn"/>
+                            <constraint firstItem="WWb-Wf-SSw" firstAttribute="leading" secondItem="zr0-pq-692" secondAttribute="trailing" constant="5" id="WMW-z0-3S9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZFy-dI-ZES" secondAttribute="bottom" constant="20" id="XzV-YM-caj"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wDm-pA-nkT" secondAttribute="trailing" constant="10" id="Yq0-D5-hRE"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZFy-dI-ZES" secondAttribute="trailing" constant="20" id="ae6-gS-IaL"/>
+                            <constraint firstItem="zr0-pq-692" firstAttribute="top" secondItem="dFl-gd-N3C" secondAttribute="bottom" constant="20" id="dzY-CV-9fe"/>
                             <constraint firstItem="wDm-pA-nkT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="eVK-0P-B5B"/>
-                            <constraint firstItem="wDm-pA-nkT" firstAttribute="top" secondItem="dFl-gd-N3C" secondAttribute="bottom" constant="20" id="oeB-VC-7TC"/>
+                            <constraint firstItem="wDm-pA-nkT" firstAttribute="top" secondItem="zr0-pq-692" secondAttribute="bottom" constant="20" id="sEG-cb-k1d"/>
                             <constraint firstItem="dFl-gd-N3C" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tJR-hJ-pGc"/>
+                            <constraint firstItem="WWb-Wf-SSw" firstAttribute="top" secondItem="dFl-gd-N3C" secondAttribute="bottom" constant="20" id="xla-9L-Cnj"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QhM-ae-gs6" secondAttribute="trailing" constant="10" id="zk0-D1-pLc"/>
                         </constraints>
                     </view>
                     <connections>

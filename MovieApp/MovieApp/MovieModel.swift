@@ -14,14 +14,15 @@ struct MovieModel: Codable {
 }
 
 struct MovieResult: Codable {
-    let trackName: String
-    let previewUrl: String
-    let image: String
+    // 데이터가 없을 수 있음.
+    let trackName: String?
+    let previewUrl: String?
+    let image: String?
     let shortDescription: String?
-    let longDescription: String
-    let trackPrice: Double
-    let currency: String
-    let releaseDate: String
+    let longDescription: String?
+    let trackPrice: Double?
+    let currency: String?
+    let releaseDate: String?
 
     
     // api 에서 가져오는 변수명 변경시 사용

@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var movieTableView: UITableView!
     
+    var term = ""
+    
+    var networkLayer = NetworkLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,58 +32,55 @@ class ViewController: UIViewController {
     
     // 이미지 호출
     func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        
-        if let hasURL = URL(string: urlString) {
-            var request = URLRequest(url: hasURL)
-            request.httpMethod = "GET"
+        networkLayer.request(type: .onlyUrl(urlString: urlString)) { data, response, error in
             
-            session.dataTask(with: request) { data, response, error in
-                print( (response as! HTTPURLResponse).statusCode )
-                
-                if let hasData = data {
-                    completion(UIImage(data: hasData))
-                    return
-                }
-                // 실행한다.
-            }.resume()
-            session.finishTasksAndInvalidate()
+            // 데이터 처리
+            if let hasData = data {
+                completion(UIImage(data: hasData))
+                return
+            }
+            completion(nil)
         }
-        // 실패시 메모리 삭제
-        completion(nil)
     }
     
+    // 이미지 호출
+//    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
+//        let sessionConfig = URLSessionConfiguration.default
+//        let session = URLSession(configuration: sessionConfig)
+//
+//        if let hasURL = URL(string: urlString) {
+//            var request = URLRequest(url: hasURL)
+//            request.httpMethod = "GET"
+//
+//            session.dataTask(with: request) { data, response, error in
+//                print( (response as! HTTPURLResponse).statusCode )
+//
+//                if let hasData = data {
+//                    completion(UIImage(data: hasData))
+//                    return
+//                }
+//                // 실행한다.
+//            }.resume()
+//            session.finishTasksAndInvalidate()
+//        }
+//        // 실패시 메모리 삭제
+//        completion(nil)
+//    }
     
     // API 호출
     func requestMovieAPI() {
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
         
-        var components = URLComponents(string: "https://itunes.apple.com/search")
-        
-        let term = URLQueryItem(name: "term", value: "marvel")
+        let term = URLQueryItem(name: "term", value: term)
         let media = URLQueryItem(name: "media", value: "movie")
+        let querys = [term, media]
         
-        components?.queryItems = [term, media]
-        
-        guard let url = components?.url else {
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        let task = session.dataTask(with: request) { data, response, error in
-            print( (response as! HTTPURLResponse).statusCode )
+        networkLayer.request(type: .searchMovie(querys: querys)) { data, response, error in
             
             if let hasData = data {
                 
                 do {
                     self.movieModel = try JSONDecoder().decode(MovieModel.self, from: hasData)
-                    
-                    print(self.movieModel ?? "No Data")
-                    
+                
                     // 메인쓰레드에서 진행
                     DispatchQueue.main.async {
                         self.movieTableView.reloadData()
@@ -89,9 +90,49 @@ class ViewController: UIViewController {
                 }
             }
         }
-        task.resume()
-        session.finishTasksAndInvalidate()
     }
+    
+    // API 호출
+//    func requestMovieAPI() {
+//        let sessionConfig = URLSessionConfiguration.default
+//        let session = URLSession(configuration: sessionConfig)
+//
+//        var components = URLComponents(string: "https://itunes.apple.com/search")
+//
+//        let term = URLQueryItem(name: "term", value: "marvel")
+//        let media = URLQueryItem(name: "media", value: "movie")
+//
+//        components?.queryItems = [term, media]
+//
+//        guard let url = components?.url else {
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "GET"
+//
+//        let task = session.dataTask(with: request) { data, response, error in
+//            print( (response as! HTTPURLResponse).statusCode )
+//
+//            if let hasData = data {
+//
+//                do {
+//                    self.movieModel = try JSONDecoder().decode(MovieModel.self, from: hasData)
+//
+//                    print(self.movieModel ?? "No Data")
+//
+//                    // 메인쓰레드에서 진행
+//                    DispatchQueue.main.async {
+//                        self.movieTableView.reloadData()
+//                    }
+//                }catch {
+//                    print(error)
+//                }
+//            }
+//        }
+//        task.resume()
+//        session.finishTasksAndInvalidate()
+//    }
 }
 
 extension ViewController:
@@ -103,7 +144,13 @@ extension ViewController:
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
             
+            // 선택한 행 자연스럽게
+            tableView.deselectRow(at: indexPath, animated: true)
+            
             detailVC.movieResult = self.movieModel?.results[indexPath.row]
+            
+            // 상세 화면 풀스크린
+//            detailVC.modalPresentationStyle = .fullScreen
             
            // 화면 띄우기
             self.present(detailVC, animated: true, completion: nil)
@@ -120,7 +167,7 @@ extension ViewController:
             cell.descriptionLabel.text = self.movieModel?.results[indexPath.row].shortDescription
            
             let currency =  self.movieModel?.results[indexPath.row].currency ?? ""
-            let price = self.movieModel?.results[indexPath.row].trackPrice.description ?? ""
+            let price = self.movieModel?.results[indexPath.row].trackPrice?.description ?? ""
             
             cell.priceLabel.text = currency + price
             
@@ -152,5 +199,11 @@ extension ViewController:
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        guard let hasText = searchBar.text else {
+            return
+        }
+        term = hasText
+        requestMovieAPI()
+        self.view.endEditing(true)
     }
 }
